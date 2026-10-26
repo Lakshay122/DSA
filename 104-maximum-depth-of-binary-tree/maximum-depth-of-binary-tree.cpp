@@ -12,9 +12,15 @@
  */
 class Solution {
 public:
+   int maxDepthDFS(TreeNode* root){
+        if(!root)return 0;
+        return max(maxDepthDFS(root->left),maxDepthDFS(root->right))+1;
+    }
     int maxDepth(TreeNode* root) {
         if(!root) return 0;
         // we are trying to solve this question using dfs and bfs
+        return maxDepthDFS(root);
+
         // for bfs we are going to use the queue
         queue<TreeNode*> q;
         if(root) q.push(root);
